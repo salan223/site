@@ -134,9 +134,47 @@ padding: 10px 45px;
  transition: 0.3s;
  }
 
- .plantlink:hover{ 
+ .plantlink:hover{
  background-color: white;
  color: #081F2D;
  border-color: #081F2D;
  transition: 0.3s;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-scroll-behavior: smooth; /* Safari */
+  -moz-scroll-behavior: smooth; /* Firefox */
+  -ms-scroll-behavior: smooth; /* IE/Edge */
+}
+
+.header-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  background-color:#767676;
+  z-index: 1;
+}
+
+.header-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header-nav li {
+  display: inline-block;
+}
+
+.header-nav li a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+}
+
+.header-nav li a:hover {
+  background-color: #f2f2f2;
 }

@@ -16,7 +16,7 @@
   <nav class="header-nav">
     <ul>
       <li> <a href="#home">Home</a></li>
-      <li> <a href="#About me">About me</a></li>
+      <li> <a href="#About-me">About me</a></li>
       <li> <a href="#Skills">Skills</a></li>
       <li> <a href="#Experience">Experience</a></li>
       <li> <a href="#Projects">Projects</a></li>
@@ -28,27 +28,75 @@
 </header>
 <body>
 
-<section id="home">
-  <div class="topContainer">
-    <h1>I'm Salan</h1>
-    <p>A Programmer.</p>
-    <img class="bottom-cloud" src="images/cloudddd.png" alt="">
-    <img src="images/mountainn.png" alt="">
-  </div>
+  <section id="home">
+    <div class="topContainer">
+      <p>Hello, I'm</p>
+      <h1>Salan Bhattarai</h1>
+      <p id="typing-text"> ...A programmer, Passionate about circuit designing, currently in search of an internship opportunities.</p>
+      <span id="typing-cursor"></span>
+      <img src="images/mountainn.png" alt="">
+    </div>
   </section>
 
-<section id="About me">
+  <script>
+    window.onload = function() {
+      var typingText = document.getElementById("typing-text");
+      var cursor = document.getElementById("typing-cursor");
+      var words = typingText.textContent.substring(4).split(",");
+      var wordIndex = 0;
+      var letterIndex = 0;
+      var isDeleting = false;
+
+      setInterval(function() {
+        var currentWord = words[wordIndex];
+        var currentText = "<p> " + currentWord.substring(0, letterIndex)+" </p>";
+        typingText.textContent = currentText;
+
+        if (letterIndex >= currentWord.length) {
+          isDeleting = true;
+          cursor.style.visibility = "hidden";
+        } else if (letterIndex === 0) {
+          isDeleting = false;
+          cursor.style.visibility = "visible";
+        }
+
+        if (isDeleting) {
+          letterIndex--;
+        } else {
+          letterIndex++;
+        }
+
+        if (letterIndex === currentWord.length && !isDeleting) {
+          setTimeout(function() {
+            isDeleting = true;
+          }, 1000);
+        } else if (letterIndex === 0 && isDeleting) {
+          wordIndex = (wordIndex + 1) % words.length;
+          currentWord = words[wordIndex];
+          setTimeout(function() {
+            isDeleting = false;
+          }, 1000);
+        }
+
+      }, 100);
+    }
+  </script>
+
+<section id="About-me">
   <div class="middle-container">
+
     <div class="profile">
-      <img class="me" src="images/mee.png" alt="">
+      <img class="me" src="images/salan.jpg" alt="">
       <h2>Hello World.</h2>
       <p style="color: white;">A second-year computer engineering student at York </p>
 
       <p>University with strong analytical and problem-solving skills </p>
       <p>that values professionalism and integrity in work.</p>
+      <img class="york" src="images/yorrk.png" alt="">
     </div>
+
   </div>
-  </section>
+</section>
 
 <section id="Skills">
 
